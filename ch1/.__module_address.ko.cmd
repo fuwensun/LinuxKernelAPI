@@ -1,0 +1,1 @@
+cmd_/home/sfw/LinuxkernelAPI/ch1/__module_address.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/sfw/LinuxkernelAPI/ch1/__module_address.ko /home/sfw/LinuxkernelAPI/ch1/__module_address.o /home/sfw/LinuxkernelAPI/ch1/__module_address.mod.o ;  true

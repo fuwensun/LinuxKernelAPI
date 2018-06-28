@@ -1,0 +1,9 @@
+sudo apt-install libelf-dev libelf-devel
+sudo apt install linux-source
+
+cd /usr/src/
+sudo tar xjf linux-source-4.15.0.tar.bz2       
+cp -v /boot/config-4.15.0-2 .config
+sudo cp -v /boot/config-`uname -r` .config
+cp -r -d ../linux-source-4.15.0 ~/
+
