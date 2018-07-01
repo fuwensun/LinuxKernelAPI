@@ -7,3 +7,5 @@ cp -v /boot/config-4.15.0-2 .config
 sudo cp -v /boot/config-`uname -r` .config
 cp -r -d ../linux-source-4.15.0 ~/
 
+sudo apt-get install unrar
+unrar x yyy.rar 

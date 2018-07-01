@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter10/unregister_chrdev/register_unregister_chrdev.ko
+/home/qiutie/programcode/chapter10/unregister_chrdev/register_unregister_chrdev.o

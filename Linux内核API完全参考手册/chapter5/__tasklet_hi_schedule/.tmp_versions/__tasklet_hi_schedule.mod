@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter5/__tasklet_hi_schedule/__tasklet_hi_schedule.ko
+/home/qiutie/programcode/chapter5/__tasklet_hi_schedule/__tasklet_hi_schedule.o

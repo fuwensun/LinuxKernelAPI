@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter4/try_wait_for_completion/try_wait_for_completion.ko
+/home/qiutie/programcode/chapter4/try_wait_for_completion/try_wait_for_completion.o

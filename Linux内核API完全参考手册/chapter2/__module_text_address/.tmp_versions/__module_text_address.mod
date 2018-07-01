@@ -1,0 +1,2 @@
+/tmp/chapter2/__module_text_address/__module_text_address.ko
+/tmp/chapter2/__module_text_address/__module_text_address.o

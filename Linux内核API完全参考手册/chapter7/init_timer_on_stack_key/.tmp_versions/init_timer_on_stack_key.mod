@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter7/init_timer_on_stack_key/init_timer_on_stack_key.ko
+/home/qiutie/programcode/chapter7/init_timer_on_stack_key/init_timer_on_stack_key.o

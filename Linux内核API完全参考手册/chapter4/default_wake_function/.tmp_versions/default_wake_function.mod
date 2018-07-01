@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter4/default_wake_function/default_wake_function.ko
+/home/qiutie/programcode/chapter4/default_wake_function/default_wake_function.o

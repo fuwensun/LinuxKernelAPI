@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter5/set_irq_chained_handler/set_irq_chained_handler.ko
+/home/qiutie/programcode/chapter5/set_irq_chained_handler/set_irq_chained_handler.o

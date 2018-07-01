@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter3/find_task_by_pid_type_ns/find_task_by_pid_type_ns.ko
+/home/qiutie/programcode/chapter3/find_task_by_pid_type_ns/find_task_by_pid_type_ns.o

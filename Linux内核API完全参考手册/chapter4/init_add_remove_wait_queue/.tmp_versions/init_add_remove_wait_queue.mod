@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter4/init_add_remove_wait_queue/init_add_remove_wait_queue.ko
+/home/qiutie/programcode/chapter4/init_add_remove_wait_queue/init_add_remove_wait_queue.o

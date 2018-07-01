@@ -1,0 +1,2 @@
+/home/qiutie/programcode/chapter5/tasklet_disable_nosync/tasklet_disable_nosync.ko
+/home/qiutie/programcode/chapter5/tasklet_disable_nosync/tasklet_disable_nosync.o

@@ -4,3 +4,6 @@
 *.mod.*
 *.ko
 *.swp
+*.swo
+*.cmd
+*.mk
