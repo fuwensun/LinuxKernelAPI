@@ -1,5 +1,7 @@
-/*
- *
+/* 
+ * linux/kernel/module.c
+ * struct module *__module_text_address(unsigned long addr) 
+ * 传入的地址(addr)如果是模块的代码段(text),返回module指针，否则返回NULL
  */
 
 #include <linux/module.h>
