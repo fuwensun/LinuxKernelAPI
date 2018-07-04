@@ -35,3 +35,4 @@ make && sudo insmod __module_address.ko && sudo rmmod __module_address.ko && sud
 
 grep -r KERN_SOH /usr/src/linux-headers-4.15.0-22
 
+cat /proc/kallsyms | grep test_module
