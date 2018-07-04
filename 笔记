@@ -23,7 +23,14 @@ $ grep -r KERN_SOH /usr/src/linux-headers-4.15.0-22
 #define KERN_EMERG   "<0>"   /* system is unusable */
 #define KERN_ALERT   "<1>"   /* action must be taken immediately */
 
-
+3,
+申明和编码要分开
+//warning!
+ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+     struct module *fmodule = find_module(name);
+//ok!
+struct module *fmodule = 0;
+fmodule = find_module(name);
 
 
 命令：
