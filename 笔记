@@ -32,6 +32,17 @@ ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
 struct module *fmodule = 0;
 fmodule = find_module(name);
 
+4,
+内核符号的导出，以变量、函数为最小单位。
+GPL模块可以导出“非”GPL符号（使用它的模块不会被传染GPL）。
+GPL模块可以导出GPL符号（使用它的模块会被传染GPL）。
+EXPORT_SYMBOL(symbol_A);
+EXPORT_SYMBOL_GPL(symbol_A_GPL);
+EXPORT_SYMBOL_GPL_FUTURE(symbol_A_GPL_FUTURE);
+
+5,
+struct pid 进程描述符
+pid_t	   进程号
 
 命令：
 make
