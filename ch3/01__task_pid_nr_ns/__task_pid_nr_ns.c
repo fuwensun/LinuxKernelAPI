@@ -3,13 +3,13 @@
  * pid_t __task_pid_nr_ns(struct task_struct *task, 
  * 				enum pid_type type, 
  * 				struct pid_namespace *ns)
- * 根据进程描述符，pid类型，pid命名空间，查找pid_t
+ * 根据进程描述符，pid类型，pid命名空间，查找进程号pid_t
  */
 
 #include <linux/module.h>
 #include <linux/sched.h>
 #include <linux/pid.h>
-#include <linux/sched/task.h>									//<---1
+#include <linux/sched/task.h>
 #include <linux/kthread.h>
 
 int my_function(void *argc){
