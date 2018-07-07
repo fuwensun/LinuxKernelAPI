@@ -40,7 +40,9 @@ EXPORT_SYMBOL(symbol_A);
 EXPORT_SYMBOL_GPL(symbol_A_GPL);
 EXPORT_SYMBOL_GPL_FUTURE(symbol_A_GPL_FUTURE);
 
-
+5,
+struct pid 进程描述符
+pid_t	   进程号
 
 命令：
 make
