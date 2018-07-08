@@ -1,6 +1,6 @@
 ifneq ($(KERNELRELEASE),)         #第二次make执行路径，KERNELRELEASE内核源码Makefile中定义的变量，第一次make（手动）时，未定义
 
-obj-m += __task_pid_nr_ns.o
+obj-m += find_pid_ns.o
 
 else                              #第一次make执行路径            
 
