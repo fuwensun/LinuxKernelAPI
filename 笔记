@@ -44,6 +44,13 @@ EXPORT_SYMBOL_GPL_FUTURE(symbol_A_GPL_FUTURE);
 struct pid 进程描述符
 pid_t	   进程号
 
+6，内核线程创建
+cmm_thread_ptr = kthread_run(cmm_thread, NULL, "cmmthread");
+if (!IS_ERR(cmm_thread_ptr))
+	return 0;
+
+
+
 命令：
 make
 sudo insmod __module_address.ko 
