@@ -50,6 +50,20 @@ if (!IS_ERR(cmm_thread_ptr))
 	return 0;
 
 
+6,
+pid_t <–> struct pid *
+----------------------------------
+pid_t pid_vnr(struct pid *pid)
+struct pid *find_pid_ns(int nr, struct pid_namespace *ns);
+struct pid *find_vpid(int nr)
+struct pid *find_get_pid(int nr)
+
+struct pid * –> struct task_struct *
+----------------------------------
+struct pid *get_task_pid(sturct task_struct *task, enum pid_type);
+struct task_struct *pid_task(struct pid *pid, enum pid_type);
+struct task_struct *get_pid_task(struct pid *pid, enum pid_type)
+
 
 命令：
 make
