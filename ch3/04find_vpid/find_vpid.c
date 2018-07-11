@@ -15,7 +15,7 @@ int my_function(void *argc){
 	return 0;
 }
 
-static int __init find_task_by_pid_ns_init(void){
+static int __init find_vpid_init(void){
 	int result = 0;
 	struct pid *vpid = NULL;
 	struct task_struct *task = NULL;
@@ -38,11 +38,11 @@ static int __init find_task_by_pid_ns_init(void){
 
 }
 
-static void __exit find_task_by_pid_ns_exit(void){
+static void __exit find_vpid_exit(void){
 	printk("Goodbye find_vpid\n");
 }
 
-module_init(find_task_by_pid_ns_init);
-module_exit(find_task_by_pid_ns_exit);
+module_init(find_vpid_init);
+module_exit(find_vpid_exit);
 
 MODULE_LICENSE("GPL");
