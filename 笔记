@@ -65,6 +65,14 @@ struct task_struct *pid_task(struct pid *pid, enum pid_type);
 struct task_struct *get_pid_task(struct pid *pid, enum pid_type)
 
 
+7,
+pid_t pid_nr(struct pid *pid)	//获取全局进程号
+pid_t pid_vnr(struct pid *pid)	//获取局部进程号
+
+
+
+
+
 命令：
 make
 sudo insmod __module_address.ko 
@@ -75,3 +83,5 @@ make && sudo insmod __module_address.ko && sudo rmmod __module_address.ko && sud
 grep -r KERN_SOH /usr/src/linux-headers-4.15.0-22
 
 cat /proc/kallsyms | grep test_module
+
+
