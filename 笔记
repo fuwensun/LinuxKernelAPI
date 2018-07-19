@@ -69,7 +69,12 @@ struct task_struct *get_pid_task(struct pid *pid, enum pid_type)
 pid_t pid_nr(struct pid *pid)	//获取全局进程号
 pid_t pid_vnr(struct pid *pid)	//获取局部进程号
 
-
+8,
+废弃：
+sleep_on_timeout is deprecated
+新的：
+prepare_to_wait(q, &wait, TASK_INTERRUPTIBLE);
+schedule_timeout - sleep until timeout
 
 
 
@@ -79,6 +84,10 @@ sudo insmod __module_address.ko
 sudo rmmod __module_address.ko
 sudo dmesg -c
 make && sudo insmod __module_address.ko && sudo rmmod __module_address.ko && sudo dmesg -c
+
+modinfo xxx.ko
+sudo insmod xxx.ko && sudo dmesg -c
+sudo rmmod xxx.ko && sudo dmesg -c
 
 grep -r KERN_SOH /usr/src/linux-headers-4.15.0-22
 
