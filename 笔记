@@ -76,7 +76,27 @@ sleep_on_timeout is deprecated
 prepare_to_wait(q, &wait, TASK_INTERRUPTIBLE);
 schedule_timeout - sleep until timeout
 
+9,
+头文件可以包含头文件，参考linux/completion.h:
+---------------------------------------------------
+#ifndef __LINUX_COMPLETION_H
+#define __LINUX_COMPLETION_H
 
+/*
+ * (C) Copyright 2001 Linus Torvalds
+ *
+ * Atomic wait-for-completion handler data structures.
+ * See kernel/sched/completion.c for details.
+ */
+
+#include <linux/wait.h>				<-------包含.h文件,这completion.h是一个完整的接口
+struct completion {
+	unsigned int done;
+	wait_queue_head_t wait;			<----在wait.h中定义
+};.
+.
+.
+----------------------------------------------------
 
 命令：
 make
