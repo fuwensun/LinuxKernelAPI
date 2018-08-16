@@ -10,9 +10,9 @@
 #include <linux/pid.h>
 
 int my_function(void *argc){
-	printk("in the kernel thread function!\n");
-	printk("the current pid is: %d\n",current->pid);
-	printk("out the kernel thread function.\n");
+	printk("--->in the kernel thread function!\n");
+	printk("--->the current pid is: %d\n",current->pid);
+	printk("--->out the kernel thread function.\n");
 	return 0;
 }
 
@@ -54,8 +54,8 @@ static int __init finish_wait_init(void){
 
 	list_for_each_entry_safe(curr, next, &head.head, entry){
 		wait_queue_num++;
-		printk("the flag value of the current data of the waitqueue is:%d\n",curr->flags);
-		printk("the value of the current data of the waitqueue is:%d\n",((struct task_struct *)(curr->private))->pid);
+		printk("the flag value of the current data of the waitqueue is: %d\n",curr->flags);
+		printk("the value of the current data of the waitqueue is: %d\n",((struct task_struct *)(curr->private))->pid);
 	}
 
 	printk("the value of the wait_queue_num is: %d\n",wait_queue_num);
@@ -65,14 +65,14 @@ static int __init finish_wait_init(void){
 
 	list_for_each_entry_safe(curr, next, &head.head, entry){
 		wait_queue_num++;
-		printk("the flag value of the current data of the waitqueue is:%d\n",curr->flags);
-		printk("the value of the current data of the waitqueue is:%d\n",((struct task_struct *)(curr->private))->pid);
+		printk("the flag value of the current data of the waitqueue is: %d\n",curr->flags);
+		printk("the value of the current data of the waitqueue is: %d\n",((struct task_struct *)(curr->private))->pid);
 	}
 
 	printk("the value of the wait_queue_num is: %d\n",wait_queue_num);
-	printk("the pidt of the kthread_run is :%d\n",pidt);
-	printk("the pidt1 of the kthread run is :%d\n",pidt1);
-	printk("the current pid is :%d\n",current->pid);
+	printk("the pidt of the kthread_run is: %d\n",pidt);
+	printk("the pidt1 of the kthread run is: %d\n",pidt1);
+	printk("the current pid is: %d\n",current->pid);
 	printk("out finish_wait_init.");
 	return 0;
 }
