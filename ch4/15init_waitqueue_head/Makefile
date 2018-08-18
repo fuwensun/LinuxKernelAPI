@@ -1,6 +1,6 @@
 ifneq ($(KERNELRELEASE),)         #第二次make执行路径，KERNELRELEASE内核源码Makefile中定义的变量，第一次make（手动）时，未定义
 
-obj-m += do_exit.o
+obj-m += init_waitqueue_head.o
 
 else                              #第一次make执行路径            
 
