@@ -1,5 +1,9 @@
 /*
- */
+linux/wait.h
+kernel/sched/wait.c
+void prepare_to_wait(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry, int state)
+把等代量wq_entry加入等待队列wq_head尾部并设置当前进程状态为state.
+*/
 
 #include <linux/module.h>
 #include <linux/sched.h>
