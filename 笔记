@@ -111,7 +111,7 @@ init_waitqueue_head(&head);
 //data.entry.next = &data.entry;   //手工初始化链表节点，不推荐！
 INIT_LIST_HEAD(&data.entry);       //<-------sfw**用内核API初始化链表节点，推荐！
 init_waitqueue_entry(&data,task);
-prepare_to_wait(&head,&data,130);
+prepare_to_wait(&head,&data,130);	//sfw** 初始化为empty后才能成功加入队列
 ------------------------------------
 
 
