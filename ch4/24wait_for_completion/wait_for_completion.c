@@ -39,14 +39,14 @@ int my_function(void *argc){
 	return 0;
 }
 
-static int __init try_wait_for_completion_init(void){
+static int __init wait_for_completion_init(void){
 	pid_t pidt = 0;
 	struct task_struct *task = NULL;
 	struct pid *kpid = NULL;
 
 	wait_queue_entry_t data;
 
-	printk("into try_wait_for_completion_init.\n");
+	printk("into wait_for_completion_init.\n");
 
 	task = kthread_run(my_function,NULL,"XXX");
 	kpid = get_task_pid(task,PIDTYPE_PID);
@@ -65,17 +65,17 @@ static int __init try_wait_for_completion_init(void){
 	printk("the pidt of the kthread_run is: %d\n",pidt);
 	printk("the current pid is: %d\n",current->pid);
 
-	printk("out try_wait_for_completion_init,\n");
+	printk("out wait_for_completion_init,\n");
 
 	return 0;
 }
 
-static void __exit try_wait_for_completion_exit(void){
-	printk("Goodbye try_wait_for_completion.\n");
+static void __exit wait_for_completion_exit(void){
+	printk("Goodbye wait_for_completion.\n");
 }
 
 
-module_init(try_wait_for_completion_init);
-module_exit(try_wait_for_completion_exit);
+module_init(wait_for_completion_init);
+module_exit(wait_for_completion_exit);
 
 MODULE_LICENSE("GPL");
