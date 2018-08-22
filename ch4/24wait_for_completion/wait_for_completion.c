@@ -1,8 +1,8 @@
 /*
 linux/completion.h
 kernel/sched/completion.c
-bool wait_for_completion(struct completion *x)
-阻塞等待完成量X的
+void wait_for_completion(struct completion *x)
+阻塞等待完成量X,不可以中断。x.done为0，一直阻塞；大于0，将其减一返回。
 */
 
 #include <linux/module.h>
