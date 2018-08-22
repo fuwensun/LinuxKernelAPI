@@ -1,0 +1,40 @@
+第4章 Linux进程调度内核API
+
+-------------------------------------
+主要文件在linux/kernel/sched目录下
+
+------------------------------------
+$ tree
+.
+├── autogroup.c
+├── autogroup.h
+├── clock.c
+├── completion.c
+├── core.c						<-------------
+├── cpuacct.c
+├── cpudeadline.c
+├── cpudeadline.h
+├── cpufreq.c
+├── cpufreq_schedutil.c
+├── cpupri.c
+├── cpupri.h
+├── cputime.c
+├── deadline.c
+├── debug.c
+├── fair.c
+├── features.h
+├── idle.c
+├── isolation.c
+├── loadavg.c
+├── Makefile
+├── membarrier.c
+├── rt.c
+├── sched.h
+├── sched-pelt.h
+├── stats.c
+├── stats.h
+├── stop_task.c
+├── swait.c
+├── topology.c
+├── wait_bit.c
+└── wait.c						<------------

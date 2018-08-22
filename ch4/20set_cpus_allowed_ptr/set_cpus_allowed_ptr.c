@@ -26,7 +26,7 @@ int my_function(void *argc){
 
 	printk("--->in the kernel thread function!\n");
 	printk("--->the current pid is: %d\n",current->pid);
-	msleep(500);
+	msleep(100);
 	data = set_cpus_allowed_ptr(current->real_parent,mask);
 	printk("--->the return result of the set_cpus_allowed_ptr is: %d\n",data);
 	printk("--->out the kernel thread function!\n");
@@ -48,17 +48,17 @@ static int __init set_cpus_allowed_ptr_init(void){
 	printk("the cpu of the current thread is: %d  <---\n",current->cpu);
 	//info = current_thread_info();
 	task = kthread_run(my_function,NULL,"XXX");
-	task = kthread_run(my_function,NULL,"YYY");
-	task = kthread_run(my_function,NULL,"ZZZ");
+	//task = kthread_run(my_function,NULL,"YYY");
+	//task = kthread_run(my_function,NULL,"ZZZ");
 	kpid = get_task_pid(task,PIDTYPE_PID);
 	pidt = pid_vnr(kpid);
 
-	cpu = (current->cpu == 0) ? 1 : 0;//
+	cpu = (current->cpu < 2) ? 2 : 0;//
 	init_waitqueue_head(&head);
 	init_waitqueue_entry(&data,current);
 	//add_wait_queue(&head,&data);
-	prepare_to_wait(&head,&data,TASK_INTERRUPTIBLE);
-	result = schedule_timeout(100);
+	prepare_to_wait(&head,&data,TASK_UNINTERRUPTIBLE);
+	result = schedule_timeout(200);
 
 	printk("the new cpu of the current thread is: %d  <---\n",current->cpu);
 	printk("the return result of the kthread_run is: %d\n",pidt);
