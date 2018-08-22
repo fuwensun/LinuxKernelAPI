@@ -2,7 +2,7 @@
 linux/completion.h
 kernel/sched/completion.c
 bool try_wait_for_completion(struct completion *x)
-尝试减一完成量X的引用
+非阻塞的消耗完成量X，x.done为0，返回0；为大于0，将其值减1，返回。
 */
 
 #include <linux/module.h>
