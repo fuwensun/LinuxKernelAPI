@@ -1,8 +1,8 @@
 /*
 linux/completion.h
 kernel/sched/completion.c
-bool try_wait_for_completion(struct completion *x)
-尝试减一完成量X的引用
+bool wait_for_completion(struct completion *x)
+阻塞等待完成量X的
 */
 
 #include <linux/module.h>
