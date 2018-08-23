@@ -85,7 +85,7 @@ static int __init wait_for_completion_interruptible_init(void){
 }
 
 static void __exit wait_for_completion_interruptible_exit(void){
-	printk("Goodbye wait_for_interruptible_completion.\n");
+	printk("Goodbye wait_for_completion_interruptible.\n");
 }
 
 
