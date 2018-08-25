@@ -1,11 +1,11 @@
 /*
 linux/gfp.h
 mm/page_alloc.c
-void __free_pages(struct page *page,unsiged int order)
-释放page起2的order次方个物理页（页框/页帧）
+void free_pages(unsigned long addr, unsigned int order)
+释放虚拟地址addr起2的order次方个物理页（页框/页帧）
 
 unsigned long __get_free_pages(gfp_t gfp_mask, unsigned int order)
-以gfpmask的方式申请2的order次方个物理页面，返回第一个页面的逻辑地址（虚拟地址，线性地址）。
+以gfpmask的方式申请2的order次方个物理页面，返回第一个页面的虚拟地址（线性地址）。
 */
 
 #include <linux/module.h>
@@ -31,7 +31,7 @@ static int __init __get_free_pages_init(void){
 
 static void __exit __get_free_pages_exit(void){
 	if(addr){
-		__free_pages(addr,3);
+		free_pages(addr,3);
 		printk("free_pages ok!\n");
 	}
 	printk("exit!\n");
