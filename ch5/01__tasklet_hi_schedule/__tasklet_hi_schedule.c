@@ -2,7 +2,7 @@
 linux/interrput.h
 kernel/softirq.c
 void __tasklet_hi_schedule(struct tasklet_struct *t)
-注册t到系统（tasklet_hi_vec数组），触发软中断。 
+注册t到系统（ tasklet_hi_vec 数组），触发软中断。 
 */
 
 #include <linux/module.h>

@@ -1,6 +1,6 @@
 /*
 linux/gfp.h
-static inline struct page *alloc_pages(gfp_t gfp_mask, unsigned int order)
+void *alloc_pages_exact(size_t size, gfp_t gfp_mask)
 页对齐的方式获取size大小gfp_mask类型的连续的物理页，成功返回首页线性地址，失败返回NULL。
 */
 
