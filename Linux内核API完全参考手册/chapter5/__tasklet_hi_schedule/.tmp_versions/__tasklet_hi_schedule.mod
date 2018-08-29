@@ -1,2 +1,3 @@
-/home/qiutie/programcode/chapter5/__tasklet_hi_schedule/__tasklet_hi_schedule.ko
-/home/qiutie/programcode/chapter5/__tasklet_hi_schedule/__tasklet_hi_schedule.o
+/home/sfw/github.com/Linux_Kernel_API_Index/Linux内核API完全参考手册/chapter5/__tasklet_hi_schedule/__tasklet_hi_schedule.ko
+/home/sfw/github.com/Linux_Kernel_API_Index/Linux内核API完全参考手册/chapter5/__tasklet_hi_schedule/__tasklet_hi_schedule.o
+
