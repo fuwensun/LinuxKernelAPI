@@ -67,8 +67,6 @@ static int __init get_user_pages_remote_init(void){
 	printk("page_count(pages1)) = %d\n",page_count(pages1));
 	printk("address of pages1 is: 0x%lx\n",(unsigned long)pages1);
 	
-	
-	
 	return 0;
 }
 
