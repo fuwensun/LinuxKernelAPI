@@ -114,7 +114,8 @@ init_waitqueue_entry(&data,task);
 prepare_to_wait(&head,&data,130);	//sfw** 初始化为empty后才能成功加入队列
 ------------------------------------
 
-
+11.查找内核符号
+cat /proc/kallsyms | grep xxx
 
 命令：
 make
