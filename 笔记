@@ -117,6 +117,38 @@ prepare_to_wait(&head,&data,130);	//sfw** 初始化为empty后才能成功加入
 11.查找内核符号
 cat /proc/kallsyms | grep xxx
 
+
+12.内存池技术
+
+struct page *alloc_pages(gfp_t gfp_mask, unsigned int order)    //原型
+  void *mempool_alloc_pages(gfp_t gfp_mask, void *pool_data)	//封装	
+
+void *kmem_cache_alloc(struct kmem_cache *cachep, gfp_t flags)  //原型
+void *mempool_alloc_slab(gfp_t gfp_mask, void *pool_data)	//封装
+
+void *kmalloc(size_t size, gfp_t flags)				//原型
+void *mempool_kmalloc(gfp_t gfp_mask, void *pool_data)		//封装
+
+mempool_t *mempool_create(int min_nr, mempool_alloc_t *alloc_fn,mempool_free_t *free_fn, void *pool_data)
+min_nr:   创建元素个数
+alloc_fn: 后台分配函数
+free_fn:  后台释放函数
+pool_data:传给后台函数的参数，如：cache，size。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 命令：
 make
 sudo insmod __module_address.ko 
