@@ -136,6 +136,37 @@ free_fn:  后台释放函数
 pool_data:传给后台函数的参数，如：cache，size。
 
 
+13.
+------------------------
+class_create()/device_create() --> mknod /dev/my_char_dev c 246 0
+
+------------------------
+register_chrdev()
+	cdev_alloc()
+	cdev_add()
+
+unregister_chardev()
+	cdev_del()
+	cdev
+
+------------------------
+__class_create()
+	__class_register()
+
+class_destroy()
+	class_unregister()
+
+------------------------
+device_create()
+	device_register()
+		device_initialize()
+		device_add()
+
+device_destroy()
+	device_unregister()
+		device_del()
+
+14.
 
 
 

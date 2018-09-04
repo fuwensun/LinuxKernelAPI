@@ -33,3 +33,7 @@ int main(int argc, char **argv){
 	printf("close the char dev file and test over\n");
 	return 0;
 }
+
+//sudo mknod /dev/my_char_dev c 246 0
+//sudo ./cdev_test
+
