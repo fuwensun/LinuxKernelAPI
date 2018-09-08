@@ -12,11 +12,11 @@
 #include <linux/uaccess.h>
 #include <linux/device.h>
 #define MEM_MALLOC_SIZE 4096
-#define MEM_MAJOR	0	
 #define MEM_MINOR	10
 
 char *mem_spvm = NULL;
 struct class *mem_class = NULL;
+int major = -1;
 
 static int mem_open(struct inode *ind, struct file *filp);
 static int mem_release(struct inode *ind, struct file *filp);
@@ -33,23 +33,24 @@ struct file_operations mem_fops = {
 };
 
 static int __init class_register_unregister_init(void){
-	int res = -1;
 	int ret = 0;
 	printk("into class_register_unregister_init\n");
 	
 	//alloc-register-dev
 	mem_spvm = (char *)vmalloc(MEM_MALLOC_SIZE);
-	res = register_chrdev(MEM_MAJOR,"my_char_dev",&mem_fops);
-	if(res < 0){						// <----- failed  res < 0	
-		//unregister_chrdev(MEM_MAJOR,"my_char_dev");
-		printk("register char dev failed <E 1> ,res = %d\n",res);
+	
+	major = register_chrdev(0,"my_char_dev",&mem_fops);
+	if(major < 0){						// <----- failed < 0, success = major
+		printk("register char dev failed <E 1> ,err = %d\n",major);
 		return -ENOMEM;
 	}
-	printk("register char dev success [S 1]\n");
+	printk("register char dev success [S 1], major = %d\n",major);
 
 	//alloc-register-class
-	mem_class = kzalloc(sizeof(*mem_class),GFP_KERNEL);
+	mem_class = kzalloc(sizeof(*mem_class),GFP_KERNEL);	//<----- failed = NULL, success = addr
 	if(!mem_class){
+		
+		unregister_chrdev(major,"my_char_dev");
 		kfree(mem_class);
 		printk("failed in kzalloc class <E 2>\n");
 		return -ENOMEM;
@@ -62,7 +63,8 @@ static int __init class_register_unregister_init(void){
 	ret = class_register(mem_class);
 	//struct lock_class_key key;
 	//ret = __class_register(mem_class,&key);
-	if(ret){
+	if(ret){						//<-----failed < 0, success = 0
+		unregister_chrdev(major,"my_char_dev");
 		kfree(mem_class);
 		printk("failed in registing class <E 3>\n");
 		return -ENOMEM;
@@ -70,7 +72,8 @@ static int __init class_register_unregister_init(void){
 	printk("register class success [S 3]\n");
 	
 	//dev-to-clase-dir
-	device_create(mem_class,NULL,MKDEV(MEM_MAJOR,MEM_MINOR),NULL,"my_char_dev__IN__class");
+	device_create(mem_class,NULL,MKDEV(major,MEM_MINOR),NULL,"my_char_dev__IN__class");
+	//Returns &struct device pointer on success, or ERR_PTR() on error.
 	printk("device create success [S 4]\n");
 	printk("out class_register_unregister_init\n");
 	return 0;
@@ -79,10 +82,10 @@ static int __init class_register_unregister_init(void){
 static void __exit class_register_unregister_exit(void){
 	
 	printk("into class_register_unregister_exit\n");
-	unregister_chrdev(MEM_MAJOR,"my_char_dev");
-	device_destroy(mem_class,MKDEV(MEM_MAJOR,MEM_MINOR));
+	device_destroy(mem_class,MKDEV(major,MEM_MINOR));
 	if((mem_class) && (!IS_ERR(mem_class)))
 		class_unregister(mem_class);
+	unregister_chrdev(major,"my_char_dev");
 	if(mem_spvm)
 		vfree(mem_spvm);
 	printk("vfree ok!\n");
