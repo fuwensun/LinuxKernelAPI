@@ -29,7 +29,7 @@ int __init __module_text_address_init(void){
     preempt_enable();
 
     printk("it's about fun_a:\n");
-    if (ret != NULL){
+    if (ret){
         printk("ret->name: %s\n",ret->name);
         printk("ret->state: %d\n",ret->state);
         printk("ret->percpu_size: %d\n",ret->percpu_size);
@@ -43,7 +43,7 @@ int __init __module_text_address_init(void){
     preempt_enable();
 
     printk("it's about var_b:\n");
-    if (ret != NULL){
+    if (ret){
         printk("ret->name: %s\n",ret->name);
         printk("ret->state: %d\n",ret->state);
         printk("ret->percpu_size: %d\n",ret->percpu_size);
