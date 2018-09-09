@@ -3,6 +3,7 @@
  * 如果符号存在，其所在模块引用减一，无返回值
  */
  
+#include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/init.h>
 
@@ -10,17 +11,23 @@ static int __init __symbol_put_init(void);
 static void __exit __symbol_put_exit(void);
 
 int __init __symbol_put_init(void){
-    const char *symbol_name = 0;
-    const char *mod_name = 0;
-    struct module *fmodule = 0;
+    	const char *symbol_name = NULL;
+    	const char *mod_name = NULL;
+    	struct module *fmodule = NULL;
 
-    symbol_name = "symbol_A";
-    mod_name = "test_module";
-    fmodule = find_module(mod_name);
-    if (fmodule != NULL){
-        if (!try_module_get(fmodule)){
-            printk("get moudle failed!\n");
-            return 0;
+    	symbol_name = "symbol_A";
+    	//symbol_name = "start_kernel";
+    	mod_name = "test_module";
+    	//mod_name = "ip_tables";
+    	fmodule = find_module(mod_name);
+   	if (!fmodule){
+        	printk("find %s failed!\n", mod_name);
+		return 0;
+    	}
+
+	if (!try_module_get(fmodule)){
+           	printk("get moudle failed!\n");
+            	return 0;
         }
         printk("before calling _symbol_get,__symbol_put,\n");
         printk("ref of %s is: %d\n",mod_name,module_refcount(fmodule));
@@ -32,14 +39,12 @@ int __init __symbol_put_init(void){
         printk("ref of %s is: %d\n",mod_name,module_refcount(fmodule));
  
         module_put(fmodule);
-    }else{
-        printk("find %s failed!\n", mod_name);
-    }
-    return 0;
+    
+	return 0;
 }
 
 void __exit __symbol_put_exit(void){
-    printk("module <%s> exit ok!\n",THIS_MODULE->name);
+    	printk("module <%s> exit ok!\n",THIS_MODULE->name);
 }
 
 module_init(__symbol_put_init);
