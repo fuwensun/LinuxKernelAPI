@@ -1,7 +1,7 @@
 /*
  *linux/kernel/module.c
  *void __symbol_get(const char *symbol)
- *如果符号存在，返回地址，引用加一；否则返回NULL
+ *如果符号存在，返回地址，引用计数加一；否则返回NULL
  */
 
 #include <linux/module.h>
@@ -17,7 +17,7 @@ int __init __symbol_get_init(void){
     symbol_name = "cpu_info";
     addr = __symbol_get(symbol_name);
 
-    if (addr != NULL){
+    if (addr){
         printk("the address of %s is: %lx\n",symbol_name,(unsigned long)addr);
     }else{
         printk("%s isn't found\n",symbol_name);
@@ -26,7 +26,7 @@ int __init __symbol_get_init(void){
     symbol_name = "symbol_0";
     addr = __symbol_get(symbol_name);
 
-    if (addr != NULL){
+    if (addr){
         printk("the address of %s is: %lx\n",symbol_name,(unsigned long)addr);
     }else{
         printk("%s isn't found\n",symbol_name);
